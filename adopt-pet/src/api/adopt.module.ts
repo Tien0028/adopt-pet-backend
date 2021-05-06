@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AdoptGateway } from '../api/gateway/adopt.gateway';
+import { AdoptGateway } from './gateway/adopt.gateway';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import PetEntity from '../infrastructure/entities/pet.entity';
 import { IAdoptPetServiceProvider } from '../core/primary-ports/adopt-pet.service.interface.';

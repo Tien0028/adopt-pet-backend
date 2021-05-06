@@ -48,7 +48,7 @@ export class AdoptPetService implements IAdoptPetService {
   }
 
   async getAllPets(): Promise<Pet[]> {
-    this.addPet();
+    //this.addPet();
     const pets = await this.adoptPetRepository.find();
     console.log('Pets = ', pets);
     const allPets: Pet[] = JSON.parse(JSON.stringify(pets));

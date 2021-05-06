@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AdoptPetModule } from './module/adopt.module';
+import { AdoptPetModule } from './api/adopt.module';
 import { DatabaseModule } from './infrastructure/database/database.module';
 import { AdoptPetService } from './core/services/adopt-pet.service';
 import { ConfigModule } from '@nestjs/config';
