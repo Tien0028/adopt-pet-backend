@@ -42,6 +42,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   async handleDisconnect(client: Socket, ...args: any): Promise<any> {
-
+    console.log('Client Disconnect', client.id);
+    client.emit('allPets', await this.adoptPetService.getAllPets());
   }
 }
