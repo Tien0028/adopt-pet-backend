@@ -4,7 +4,8 @@ import {
   OnGatewayConnection,
   OnGatewayDisconnect,
   SubscribeMessage,
-  WebSocketGateway, WebSocketServer,
+  WebSocketGateway,
+  WebSocketServer,
 } from '@nestjs/websockets';
 import { Pet } from '../../core/models/pet.model';
 import { Socket } from 'socket.io';
@@ -41,6 +42,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @SubscribeMessage('allPets')
   async handleAllPetsEvent(@ConnectedSocket() client: Socket): Promise<void> {
     try {
+      console.log('Event registered');
       const pets = await this.adoptPetService.getAllPets();
       this.server.emit('allPets', pets);
     } catch (e) {
@@ -50,6 +52,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
   async handleConnection(client: Socket, ...args: any[]): Promise<any> {
     console.log('Client Connect', client.id);
     client.emit('allPets', await this.adoptPetService.getAllPets());
+    console.log('Pets');
   }
 
   async handleDisconnect(client: Socket, ...args: any): Promise<any> {
