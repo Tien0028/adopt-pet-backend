@@ -4,7 +4,7 @@ import PetEntity from "./pet.entity";
 @Entity()
 export class PersonEntity {
     @PrimaryGeneratedColumn()
-    public id: string;
+    public id: number;
     @Column()
     public firstName: string;
     @Column()

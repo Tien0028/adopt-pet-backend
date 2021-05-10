@@ -4,6 +4,8 @@ import PetEntity from '../../infrastructure/entities/pet.entity';
 import { Repository } from 'typeorm';
 import { IAdoptPetService } from '../primary-ports/adopt-pet.service.interface.';
 import { Pet } from '../models/pet.model';
+import {PersonModel} from "../models/person.model";
+import PersonEntity from "../../infrastructure/entities/person.entity";
 
 @Injectable()
 export class AdoptPetService implements IAdoptPetService {
@@ -11,6 +13,8 @@ export class AdoptPetService implements IAdoptPetService {
   constructor(
     @InjectRepository(PetEntity)
     private adoptPetRepository: Repository<PetEntity>,
+    @InjectRepository(PersonEntity)
+    private personRepository: Repository<PersonEntity>,
   ) {}
 
   //Test Method:
@@ -54,5 +58,22 @@ export class AdoptPetService implements IAdoptPetService {
     const allPets: Pet[] = JSON.parse(JSON.stringify(pets));
     console.log('getAllPets total:', allPets.length);
     return allPets;
+  }
+
+  async createPerson(p: PersonModel): Promise<PersonModel> {
+    try {
+      const petDB = await this.adoptPetRepository.findOne({ id: p.petId });
+      const personCreated = await this.personRepository.create({
+        firstName: p.firstName,
+        lastName: p.lastName,
+        email: p.email,
+        phoneNumber: p.phoneNumber,
+        pet: petDB
+      });
+      await this.personRepository.save(personCreated);
+      return personCreated;
+    } catch (e) {
+      console.log('Catch an error', e);
+    }
   }
 }
