@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b37962-26ca-4615-9902-37985a6d913c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/person.entity.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/infrastructure/database/database.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/database/database.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/person.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/person.entity.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,7 @@
       <updated>1620203437220</updated>
       <workItem from="1620203438339" duration="507000" />
       <workItem from="1620288015469" duration="2181000" />
-      <workItem from="1620639712102" duration="1211000" />
+      <workItem from="1620639712102" duration="2723000" />
     </task>
     <servers />
   </component>

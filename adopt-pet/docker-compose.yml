@@ -15,7 +15,7 @@ services:
   pgadmin:
     links:
       - postgres:postgres
-    container_name: pgadmin
+    container_name: pgadminAdopt
     image: dpage/pgadmin4
     ports:
       - "8080:80"
