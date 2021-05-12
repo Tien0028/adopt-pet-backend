@@ -14,7 +14,7 @@ import {
   IAdoptPetService,
   IAdoptPetServiceProvider,
 } from '../../core/primary-ports/adopt-pet.service.interface.';
-import {PersonModel} from "../../core/models/person.model";
+import { PersonModel } from '../../core/models/person.model';
 
 @WebSocketGateway()
 export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
@@ -27,11 +27,14 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('add-pet')
   async handleAdd(@MessageBody() data: Pet, @ConnectedSocket() client: Socket) {
-    console.log("Pet in gateaway == " + data.name)
+    console.log('Pet in gateaway == ' + data.name);
     const pet: Pet = {
       id: data.id,
       name: data.name,
       description: data.description,
+      age: data.age,
+      type: data.type,
+      address: data.address,
     };
     try {
       const petCreated = await this.adoptPetService.createPet(pet);
@@ -64,16 +67,23 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('create-person')
   async handleCreatePerson(
-      @MessageBody() person: PersonModel,
-      @ConnectedSocket() client: Socket) {
-    console.log("Id in gateaway == " + person.pet.id + " " + "personName ===" + person.firstName)
+    @MessageBody() person: PersonModel,
+    @ConnectedSocket() client: Socket,
+  ) {
+    console.log(
+      'Id in gateaway == ' +
+        person.pet.id +
+        ' ' +
+        'personName ===' +
+        person.firstName,
+    );
     const petFound = await this.adoptPetService.getPet(person.pet.id);
     const p: PersonModel = {
       firstName: person.firstName,
       lastName: person.lastName,
       email: person.email,
       phoneNumber: person.phoneNumber,
-      pet: petFound
+      pet: petFound,
     };
     try {
       const personCreated = await this.adoptPetService.createPerson(p);

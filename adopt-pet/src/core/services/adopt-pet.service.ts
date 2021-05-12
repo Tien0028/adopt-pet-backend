@@ -4,8 +4,8 @@ import PetEntity from '../../infrastructure/entities/pet.entity';
 import { Repository } from 'typeorm';
 import { IAdoptPetService } from '../primary-ports/adopt-pet.service.interface.';
 import { Pet } from '../models/pet.model';
-import {PersonModel} from "../models/person.model";
-import PersonEntity from "../../infrastructure/entities/person.entity";
+import { PersonModel } from '../models/person.model';
+import PersonEntity from '../../infrastructure/entities/person.entity';
 
 @Injectable()
 export class AdoptPetService implements IAdoptPetService {
@@ -23,6 +23,9 @@ export class AdoptPetService implements IAdoptPetService {
       id: 1,
       name: 'Tony',
       description: 'This guy needs a new home... He burned down his last one',
+      age: 900,
+      type: 'Hawk',
+      address: 'Kongensgade 40, Esbjerg',
     };
     this.adoptPetRepository.create(testPet);
     this.adoptPetRepository
@@ -43,6 +46,9 @@ export class AdoptPetService implements IAdoptPetService {
       const petCreated = await this.adoptPetRepository.create({
         name: pet.name,
         description: pet.description,
+        age: pet.age,
+        type: pet.type,
+        address: pet.address,
       });
       await this.adoptPetRepository.save(petCreated);
       return petCreated;
@@ -67,7 +73,7 @@ export class AdoptPetService implements IAdoptPetService {
         lastName: p.lastName,
         email: p.email,
         phoneNumber: p.phoneNumber,
-        pet: p.pet
+        pet: p.pet,
       });
       await this.personRepository.save(personCreated);
       return personCreated;
@@ -77,7 +83,7 @@ export class AdoptPetService implements IAdoptPetService {
   }
 
   async getPet(petId: number): Promise<Pet> {
-    console.log("id ==" + petId)
+    console.log('id ==' + petId);
     const petDB = await this.adoptPetRepository.findOne({ id: petId });
     /* const pet: Pet = {
       id: petId,
