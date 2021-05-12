@@ -27,6 +27,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('add-pet')
   async handleAdd(@MessageBody() data: Pet, @ConnectedSocket() client: Socket) {
+    console.log("Pet in gateaway == " + data.name)
     const pet: Pet = {
       id: data.id,
       name: data.name,
@@ -62,20 +63,23 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   @SubscribeMessage('create-person')
-  async handleCreatePerson(@MessageBody() person: PersonModel, @ConnectedSocket() client: Socket) {
+  async handleCreatePerson(
+      @MessageBody() person: PersonModel,
+      @ConnectedSocket() client: Socket) {
+    console.log("Id in gateaway == " + person.pet.id + " " + "personName ===" + person.firstName)
+    const petFound = await this.adoptPetService.getPet(person.pet.id);
     const p: PersonModel = {
-      id: person.id,
       firstName: person.firstName,
       lastName: person.lastName,
       email: person.email,
       phoneNumber: person.phoneNumber,
-      petId: person.petId
+      pet: petFound
     };
     try {
       const personCreated = await this.adoptPetService.createPerson(p);
-      client.emit('pet-created-success', personCreated);
+      client.emit('person-created-success', personCreated);
     } catch (e) {
-      client.emit('pet-created-error', e.message);
+      client.emit('person-created-error', e.message);
     }
   }
 }

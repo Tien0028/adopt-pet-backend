@@ -62,18 +62,29 @@ export class AdoptPetService implements IAdoptPetService {
 
   async createPerson(p: PersonModel): Promise<PersonModel> {
     try {
-      const petDB = await this.adoptPetRepository.findOne({ id: p.petId });
       const personCreated = await this.personRepository.create({
         firstName: p.firstName,
         lastName: p.lastName,
         email: p.email,
         phoneNumber: p.phoneNumber,
-        pet: petDB
+        pet: p.pet
       });
       await this.personRepository.save(personCreated);
       return personCreated;
     } catch (e) {
       console.log('Catch an error', e);
     }
+  }
+
+  async getPet(petId: number): Promise<Pet> {
+    console.log("id ==" + petId)
+    const petDB = await this.adoptPetRepository.findOne({ id: petId });
+    /* const pet: Pet = {
+      id: petId,
+      name: petDB.name,
+      description: petDB.description
+    };*/
+    const pet: Pet = JSON.parse(JSON.stringify(petDB));
+    return pet;
   }
 }
