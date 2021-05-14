@@ -66,6 +66,14 @@ export class AdoptPetService implements IAdoptPetService {
     return allPets;
   }
 
+  async getAllPersons(): Promise<PersonModel[]>{
+    const persons = await this.personRepository.find();
+    console.log('Persons = ', persons);
+    const allPersons: PersonModel[] = JSON.parse(JSON.stringify(persons));
+    console.log('getAllPets total:', allPersons.length);
+    return allPersons;
+  }
+
   async createPerson(p: PersonModel): Promise<PersonModel> {
     try {
       const personCreated = await this.personRepository.create({

@@ -70,13 +70,6 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() person: PersonModel,
     @ConnectedSocket() client: Socket,
   ) {
-    console.log(
-      'Id in gateaway == ' +
-        person.pet.id +
-        ' ' +
-        'personName ===' +
-        person.firstName,
-    );
     const petFound = await this.adoptPetService.getPet(person.pet.id);
     const p: PersonModel = {
       firstName: person.firstName,
@@ -87,7 +80,8 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
     };
     try {
       const personCreated = await this.adoptPetService.createPerson(p);
-      client.emit('person-created-success', personCreated);
+      client.emit('allPersons', await this.adoptPetService.getAllPersons());
+      //client.emit('person-created-success', personCreated);
     } catch (e) {
       client.emit('person-created-error', e.message);
     }
