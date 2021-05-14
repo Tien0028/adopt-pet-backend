@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="33b37962-26ca-4615-9902-37985a6d913c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adopt-pet/src/api/adopt.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/api/adopt.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/models/person.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/models/person.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/person.service.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/models/pet.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/models/pet.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

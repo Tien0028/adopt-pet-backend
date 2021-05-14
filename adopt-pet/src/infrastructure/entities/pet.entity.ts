@@ -5,19 +5,19 @@ export class PetEntity {
   @PrimaryGeneratedColumn()
   public id: number;
 
-  @Column({ unique: true })
+  @Column()
   public name: string;
 
-  @Column({ unique: true })
+  @Column()
   public description: string;
 
-  @Column({ nullable: false, type: 'float', default: 0.0 })
-  public age: number;
+  @Column()
+  public age: string;
 
-  @Column('text', { nullable: true })
+  @Column()
   public type: string;
 
-  @Column('text', { nullable: true })
+  @Column()
   public address: string;
 }
 

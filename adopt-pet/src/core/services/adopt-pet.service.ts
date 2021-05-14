@@ -23,7 +23,7 @@ export class AdoptPetService implements IAdoptPetService {
       id: 1,
       name: 'Tony',
       description: 'This guy needs a new home... He burned down his last one',
-      age: 900,
+      age: "1 year",
       type: 'Hawk',
       address: 'Kongensgade 40, Esbjerg',
     };
