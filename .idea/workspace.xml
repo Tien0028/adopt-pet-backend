@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,10 @@
       <workItem from="1620670465270" duration="5862000" />
       <workItem from="1620762193094" duration="696000" />
       <workItem from="1620805990505" duration="3634000" />
+      <workItem from="1621012861210" duration="10000" />
+      <workItem from="1621013194045" duration="519000" />
+      <workItem from="1621238800645" duration="1243000" />
+      <workItem from="1621771675654" duration="5628000" />
     </task>
     <servers />
   </component>

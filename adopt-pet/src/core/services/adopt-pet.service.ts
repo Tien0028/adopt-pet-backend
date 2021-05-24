@@ -58,7 +58,6 @@ export class AdoptPetService implements IAdoptPetService {
   }
 
   async getAllPets(): Promise<Pet[]> {
-    //this.addPet();
     const pets = await this.adoptPetRepository.find();
     console.log('Pets = ', pets);
     const allPets: Pet[] = JSON.parse(JSON.stringify(pets));
@@ -93,12 +92,14 @@ export class AdoptPetService implements IAdoptPetService {
   async getPet(petId: number): Promise<Pet> {
     console.log('id ==' + petId);
     const petDB = await this.adoptPetRepository.findOne({ id: petId });
-    /* const pet: Pet = {
-      id: petId,
-      name: petDB.name,
-      description: petDB.description
-    };*/
     const pet: Pet = JSON.parse(JSON.stringify(petDB));
     return pet;
+  }
+
+  getBookedPets(): Promise<Pet[]>  {
+    console.log("get booked pets");
+    const bookedPets =  this.adoptPetRepository.find({ relations: ['person'] });
+    console.log(bookedPets)
+    return bookedPets;
   }
 }

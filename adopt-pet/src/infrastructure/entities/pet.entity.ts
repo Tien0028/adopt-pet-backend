@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {Column, Entity, OneToOne, PrimaryGeneratedColumn} from 'typeorm';
+import PersonEntity from "./person.entity";
 
 @Entity()
 export class PetEntity {
@@ -19,6 +20,9 @@ export class PetEntity {
 
   @Column()
   public address: string;
+
+  @OneToOne(() => PersonEntity, (person: PersonEntity) => person.pet)
+  public person: PersonEntity;
 }
 
 export default PetEntity;

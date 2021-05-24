@@ -7,5 +7,6 @@ export interface IAdoptPetService {
   createPet(pet: Pet): Promise<Pet>;
   createPerson(p: PersonModel): Promise<PersonModel>;
   getPet(petId: number): Promise<Pet>;
-  getAllPersons(): Promise<any>;
+  getAllPersons(): Promise<PersonModel[]>;
+  getBookedPets(): Promise<Pet[]>;
 }
