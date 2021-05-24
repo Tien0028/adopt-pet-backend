@@ -5,4 +5,5 @@ export interface Pet {
   age: string;
   type: string;
   address: string;
+  isBooked: boolean;
 }

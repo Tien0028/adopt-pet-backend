@@ -27,7 +27,6 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('add-pet')
   async handleAdd(@MessageBody() data: Pet, @ConnectedSocket() client: Socket) {
-    console.log('Pet in gateaway == ' + data.name);
     const pet: Pet = {
       id: data.id,
       name: data.name,
@@ -35,6 +34,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
       age: data.age,
       type: data.type,
       address: data.address,
+      isBooked: false
     };
     try {
       const petCreated = await this.adoptPetService.createPet(pet);
@@ -83,6 +83,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @ConnectedSocket() client: Socket,
   ) {
     const petFound = await this.adoptPetService.getPet(person.pet.id);
+    await this.adoptPetService.updatePet(petFound);
     const p: PersonModel = {
       firstName: person.firstName,
       lastName: person.lastName,

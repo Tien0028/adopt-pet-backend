@@ -4,6 +4,7 @@
     <list default="true" id="33b37962-26ca-4615-9902-37985a6d913c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/api/gateway/adopt.gateway.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/models/pet.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/models/pet.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/primary-ports/adopt-pet.service.interface..ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/core/services/adopt-pet.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/adopt-pet/src/infrastructure/entities/pet.entity.ts" afterDir="false" />
@@ -40,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Funds-Backend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\dpank\Documents\GitHub\adopt-pet-backend\adopt-pet\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -63,6 +64,8 @@
       <workItem from="1621013194045" duration="519000" />
       <workItem from="1621238800645" duration="1243000" />
       <workItem from="1621771675654" duration="5628000" />
+      <workItem from="1621843924852" duration="7215000" />
+      <workItem from="1621864001725" duration="1398000" />
     </task>
     <servers />
   </component>

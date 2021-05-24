@@ -26,6 +26,7 @@ export class AdoptPetService implements IAdoptPetService {
       age: "1 year",
       type: 'Hawk',
       address: 'Kongensgade 40, Esbjerg',
+      isBooked: false
     };
     this.adoptPetRepository.create(testPet);
     this.adoptPetRepository
@@ -49,6 +50,7 @@ export class AdoptPetService implements IAdoptPetService {
         age: pet.age,
         type: pet.type,
         address: pet.address,
+        isBooked: false,
       });
       await this.adoptPetRepository.save(petCreated);
       return petCreated;
@@ -96,10 +98,9 @@ export class AdoptPetService implements IAdoptPetService {
     return pet;
   }
 
-  getBookedPets(): Promise<Pet[]>  {
-    console.log("get booked pets");
-    const bookedPets =  this.adoptPetRepository.find({ relations: ['person'] });
-    console.log(bookedPets)
-    return bookedPets;
+  async updatePet(petFound: Pet): Promise<void> {
+    const update = { isBooked: true}
+    const updatedPet = await this.adoptPetRepository.update(petFound.id, update);
+    return  undefined;
   }
 }

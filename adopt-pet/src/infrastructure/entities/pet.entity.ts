@@ -21,6 +21,9 @@ export class PetEntity {
   @Column()
   public address: string;
 
+  @Column()
+  public isBooked: boolean;
+
   @OneToOne(() => PersonEntity, (person: PersonEntity) => person.pet)
   public person: PersonEntity;
 }
