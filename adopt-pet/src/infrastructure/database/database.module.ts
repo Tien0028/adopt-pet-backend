@@ -18,6 +18,12 @@ import PersonEntity from '../entities/person.entity';
         database: configService.get('POSTGRES_DB'),
         entities: [PetEntity, PersonEntity],
         synchronize: true,
+        ssl: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        },
       }),
     }),
   ],
