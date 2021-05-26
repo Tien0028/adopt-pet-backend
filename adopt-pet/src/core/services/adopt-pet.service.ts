@@ -23,10 +23,10 @@ export class AdoptPetService implements IAdoptPetService {
       id: 1,
       name: 'Tony',
       description: 'This guy needs a new home... He burned down his last one',
-      age: "1 year",
+      age: '1 year',
       type: 'Hawk',
       address: 'Kongensgade 40, Esbjerg',
-      isBooked: false
+      isBooked: false,
     };
     this.adoptPetRepository.create(testPet);
     this.adoptPetRepository
@@ -67,7 +67,7 @@ export class AdoptPetService implements IAdoptPetService {
     return allPets;
   }
 
-  async getAllPersons(): Promise<PersonModel[]>{
+  async getAllPersons(): Promise<PersonModel[]> {
     const persons = await this.personRepository.find();
     console.log('Persons = ', persons);
     const allPersons: PersonModel[] = JSON.parse(JSON.stringify(persons));
@@ -99,8 +99,11 @@ export class AdoptPetService implements IAdoptPetService {
   }
 
   async updatePet(petFound: Pet): Promise<void> {
-    const update = { isBooked: true}
-    const updatedPet = await this.adoptPetRepository.update(petFound.id, update);
-    return  undefined;
+    const update = { isBooked: true };
+    const updatedPet = await this.adoptPetRepository.update(
+      petFound.id,
+      update,
+    );
+    return undefined;
   }
 }

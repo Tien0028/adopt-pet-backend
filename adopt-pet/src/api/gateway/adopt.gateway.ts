@@ -34,7 +34,7 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
       age: data.age,
       type: data.type,
       address: data.address,
-      isBooked: false
+      isBooked: false,
     };
     try {
       const petCreated = await this.adoptPetService.createPet(pet);
@@ -67,10 +67,12 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
   }
 
   @SubscribeMessage('allPersons')
-  async handleAllPersonsEvent(@ConnectedSocket() client: Socket): Promise<void> {
+  async handleAllPersonsEvent(
+    @ConnectedSocket() client: Socket,
+  ): Promise<void> {
     try {
-      const allPersons = await  this.adoptPetService.getAllPersons();
-      console.log(allPersons.length + " names: " + allPersons)
+      const allPersons = await this.adoptPetService.getAllPersons();
+      console.log(allPersons.length + ' names: ' + allPersons);
       client.emit('allPersons', allPersons);
     } catch (e) {
       client.error(e.message);
@@ -93,8 +95,8 @@ export class AdoptGateway implements OnGatewayConnection, OnGatewayDisconnect {
     };
     try {
       const personCreated = await this.adoptPetService.createPerson(p);
-      const allPersons = await  this.adoptPetService.getAllPersons();
-      console.log(allPersons.length + " names: " + allPersons)
+      const allPersons = await this.adoptPetService.getAllPersons();
+      console.log(allPersons.length + ' names: ' + allPersons);
       client.emit('allPersons', allPersons);
       //client.emit('person-created-success', personCreated);
     } catch (e) {

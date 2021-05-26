@@ -1,5 +1,5 @@
 import { Pet } from '../models/pet.model';
-import {PersonModel} from "../models/person.model";
+import { PersonModel } from '../models/person.model';
 
 export const IAdoptPetServiceProvider = 'IAdoptPetServiceProvider';
 export interface IAdoptPetService {
@@ -8,5 +8,5 @@ export interface IAdoptPetService {
   createPerson(p: PersonModel): Promise<PersonModel>;
   getPet(petId: number): Promise<Pet>;
   getAllPersons(): Promise<PersonModel[]>;
-  updatePet(petFound: Pet): Promise<void> ;
+  updatePet(petFound: Pet): Promise<void>;
 }
